@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Craving Roulette — وش نأكل؟</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎲</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== INTRO / SETUP SCREEN ===== -->
+  <section class="screen" id="screen-intro">
+    <div class="intro-card">
+      <div class="logo">🎲🍜</div>
+      <h1>Craving Roulette</h1>
+      <p class="arabic">وش نأكل؟</p>
+      <p class="tagline">Swipe nearby food like Tinder. It learns your taste and settles the debate in 30 seconds.</p>
+
+      <div class="mode-picker">
+        <button class="mode-btn active" data-mode="solo" id="btn-mode-solo">
+          <span class="mode-emoji">🙋</span>
+          <span>Just me</span>
+        </button>
+        <button class="mode-btn" data-mode="group" id="btn-mode-group">
+          <span class="mode-emoji">👥</span>
+          <span>Settle a debate</span>
+        </button>
+      </div>
+
+      <div class="group-config hidden" id="group-config">
+        <label for="player-count">How many people?</label>
+        <div class="stepper">
+          <button id="player-minus" type="button">−</button>
+          <span id="player-count">2</span>
+          <button id="player-plus" type="button">+</button>
+        </div>
+      </div>
+
+      <button class="cta" id="btn-start">Find food near me</button>
+      <button class="link-btn" id="btn-skip-location">No thanks, just pick for me</button>
+
+      <p class="status-line" id="intro-status"></p>
+    </div>
+  </section>
+
+  <!-- ===== PASS-DEVICE SCREEN (group mode, between players) ===== -->
+  <section class="screen hidden" id="screen-pass">
+    <div class="intro-card">
+      <div class="logo">🤝</div>
+      <h2 id="pass-heading">Pass the phone to Player 2</h2>
+      <p class="tagline">Swipe your own picks — no peeking at what the others chose.</p>
+      <button class="cta" id="btn-pass-ready">I'm ready</button>
+    </div>
+  </section>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <section class="screen hidden" id="screen-loading">
+    <div class="loader"></div>
+    <p id="loading-text">Sniffing out nearby food…</p>
+  </section>
+
+  <!-- ===== SWIPE SCREEN ===== -->
+  <section class="screen hidden" id="screen-swipe">
+    <header class="swipe-header">
+      <div class="player-tag" id="player-tag">Just me</div>
+      <div class="timer-ring" id="timer-ring">
+        <span id="timer-num">30</span>
+      </div>
+    </header>
+
+    <div class="card-stack" id="card-stack"></div>
+
+    <div class="swipe-actions">
+      <button class="round-btn nope" id="btn-nope" aria-label="Nope">✖️</button>
+      <button class="round-btn info" id="btn-info" aria-label="Details">ℹ️</button>
+      <button class="round-btn yum" id="btn-yum" aria-label="Yum">❤️</button>
+    </div>
+    <p class="hint">Swipe right to eat it, left to skip</p>
+  </section>
+
+  <!-- ===== RESULT SCREEN ===== -->
+  <section class="screen hidden" id="screen-result">
+    <div class="confetti" id="confetti"></div>
+    <div class="result-card">
+      <p class="result-kicker" id="result-kicker">Tonight's winner</p>
+      <div class="result-emoji" id="result-emoji">🍕</div>
+      <h2 id="result-name">Pizza Place</h2>
+      <p class="result-tags" id="result-tags">pizza · italian</p>
+      <p class="result-meta" id="result-meta"></p>
+      <div class="result-actions">
+        <a class="cta" id="btn-directions" href="#" target="_blank" rel="noopener">Let's go 🗺️</a>
+        <button class="secondary" id="btn-again">Spin again 🔁</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
